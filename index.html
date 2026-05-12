@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <title>Think Mink NYC — Luxury Hair, Lashes & Beauty</title>
+    <meta
+      name="description"
+      content="Think Mink NYC — premium mink wigs, frontals, closures, master stylists and lash technicians serving New York City."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-route="home">
+    <!-- Page loader -->
+    <div class="loader" id="loader">
+      <div class="loader-mark">
+        <span>THINK</span>
+        <span class="mink">MINK</span>
+        <span class="nyc">NYC</span>
+      </div>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+
+    <!-- Floating cursor halo -->
+    <div class="cursor-halo" id="cursorHalo" aria-hidden="true"></div>
+
+    <!-- Top announcement bar -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>FREE NYC PICKUP</span><span>·</span>
+        <span>100% VIRGIN MINK HAIR</span><span>·</span>
+        <span>BOOK ONLINE 24/7</span><span>·</span>
+        <span>NEW STYLISTS NOW ACCEPTING CLIENTS</span><span>·</span>
+        <span>FREE NYC PICKUP</span><span>·</span>
+        <span>100% VIRGIN MINK HAIR</span><span>·</span>
+        <span>BOOK ONLINE 24/7</span><span>·</span>
+        <span>NEW STYLISTS NOW ACCEPTING CLIENTS</span><span>·</span>
+      </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="nav" id="nav">
+      <a class="brand" href="#home" data-link>
+        <span class="brand-think">Think</span>
+        <span class="brand-mink">Mink</span>
+        <span class="brand-nyc">NYC</span>
+      </a>
+
+      <nav class="primary-nav" id="primaryNav">
+        <a href="#home" data-link>Home</a>
+        <div class="has-dropdown">
+          <a href="#shop-wigs" data-link>Shop ▾</a>
+          <div class="dropdown">
+            <a href="#shop-wigs" data-link>Wigs</a>
+            <a href="#shop-frontals" data-link>Frontals & Closures</a>
+            <a href="#shop-bundles" data-link>Mink Bundles</a>
+          </div>
+        </div>
+        <div class="has-dropdown">
+          <a href="#talent-stylists" data-link>Talent ▾</a>
+          <div class="dropdown">
+            <a href="#talent-stylists" data-link>Hair Stylists</a>
+            <a href="#talent-lash" data-link>Lash Techs</a>
+          </div>
+        </div>
+        <a href="#contact" data-link>Contact</a>
+        <a href="#book" data-link class="cta-link">Book</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <!-- Tab views -->
+    <main id="app">
+      <!-- HOME -->
+      <section class="view" data-view="home">
+        <div class="hero">
+          <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="https://picsum.photos/seed/thinkmink-hero/1920/1080?grayscale"
+          >
+            <source
+              src="https://cdn.coverr.co/videos/coverr-a-woman-in-the-salon-7470/1080p.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <p class="eyebrow reveal">EST. NEW YORK CITY</p>
+            <h1 class="display reveal">
+              <span class="line">Think</span>
+              <span class="line accent">Mink.</span>
+              <span class="line">Think Luxury.</span>
+            </h1>
+            <p class="hero-sub reveal">
+              Mink-grade virgin hair, master stylists, and beauty talent —
+              under one roof in NYC.
+            </p>
+            <div class="hero-cta reveal">
+              <a href="#book" data-link class="btn btn-primary">Book Appointment</a>
+              <a href="#shop-wigs" data-link class="btn btn-ghost">Shop the Drop</a>
+            </div>
+            <div class="hero-scroll" aria-hidden="true">
+              <span></span>SCROLL
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillars -->
+        <section class="pillars container">
+          <article class="pillar reveal">
+            <div class="pillar-num">01</div>
+            <h3>Mink-Grade Hair</h3>
+            <p>
+              100% virgin mink hair — handpicked for shine, texture, and
+              longevity. Body wave, straight, water wave & curly.
+            </p>
+          </article>
+          <article class="pillar reveal">
+            <div class="pillar-num">02</div>
+            <h3>Master Talent</h3>
+            <p>
+              Stylists trained on the bench beside founder Jenell. Lash artists,
+              MUAs and nail talent on rotation.
+            </p>
+          </article>
+          <article class="pillar reveal">
+            <div class="pillar-num">03</div>
+            <h3>One Roof, Total Look</h3>
+            <p>
+              From the install to the beat — book hair, lashes, makeup and nails
+              from a single chair in NYC.
+            </p>
+          </article>
+        </section>
+
+        <!-- Featured collection -->
+        <section class="featured container">
+          <header class="section-head reveal">
+            <p class="eyebrow">THE COLLECTION</p>
+            <h2 class="display-md">Drops we can't keep on the shelf.</h2>
+            <a href="#shop-wigs" data-link class="link-arrow">All wigs →</a>
+          </header>
+          <div class="featured-grid" id="featuredGrid"></div>
+        </section>
+
+        <!-- Talent strip -->
+        <section class="talent-strip">
+          <div class="container">
+            <header class="section-head reveal">
+              <p class="eyebrow">THE TALENT</p>
+              <h2 class="display-md">The chairs you book in advance.</h2>
+              <a href="#talent-stylists" data-link class="link-arrow">Meet the team →</a>
+            </header>
+            <div class="talent-rail" id="talentRail"></div>
+          </div>
+        </section>
+
+        <!-- Press / testimonials -->
+        <section class="press container">
+          <div class="quote reveal">
+            <p class="display-md italic">
+              "Walked in with a vision, walked out with the install of my life.
+              Think Mink is the standard."
+            </p>
+            <p class="quote-attrib">— Aaliyah, repeat client</p>
+          </div>
+          <div class="press-logos reveal">
+            <span>FEATURED IN</span>
+            <strong>ESSENCE</strong>·<strong>HYPEBAE</strong>·<strong>REFINERY29</strong>·<strong>VOGUE.IT</strong>
+          </div>
+        </section>
+
+        <!-- IG-style mosaic -->
+        <section class="mosaic container">
+          <header class="section-head reveal">
+            <p class="eyebrow">@THINKMINK.NYC</p>
+            <h2 class="display-md">From the chair.</h2>
+          </header>
+          <div class="mosaic-grid" id="mosaicGrid"></div>
+        </section>
+      </section>
+
+      <!-- SHOP WIGS -->
+      <section class="view" data-view="shop-wigs" hidden>
+        <header class="page-head">
+          <div class="container">
+            <p class="eyebrow reveal">SHOP / WIGS</p>
+            <h1 class="display reveal">Mink Wigs.</h1>
+            <p class="page-sub reveal">
+              Full lace, frontal and bob silhouettes — hand-built on mink
+              virgin hair.
+            </p>
+          </div>
+        </header>
+        <div class="container">
+          <div class="filter-bar reveal" data-filter-bar="wigs">
+            <button data-filter="all" class="active">All</button>
+            <button data-filter="full-lace">Full Lace</button>
+            <button data-filter="frontal">Frontal</button>
+            <button data-filter="bob">Bob</button>
+            <button data-filter="blonde">613 Blonde</button>
+          </div>
+          <div class="product-grid" id="wigsGrid"></div>
+        </div>
+      </section>
+
+      <!-- SHOP FRONTALS -->
+      <section class="view" data-view="shop-frontals" hidden>
+        <header class="page-head">
+          <div class="container">
+            <p class="eyebrow reveal">SHOP / FRONTALS & CLOSURES</p>
+            <h1 class="display reveal">Frontals & Closures.</h1>
+            <p class="page-sub reveal">
+              13x4 frontals and 4x4 / 5x5 closures, hand-tied on transparent
+              HD lace.
+            </p>
+          </div>
+        </header>
+        <div class="container">
+          <div class="filter-bar reveal" data-filter-bar="frontals">
+            <button data-filter="all" class="active">All</button>
+            <button data-filter="frontal">Frontals</button>
+            <button data-filter="closure">Closures</button>
+            <button data-filter="blonde">613 Blonde</button>
+          </div>
+          <div class="product-grid" id="frontalsGrid"></div>
+        </div>
+      </section>
+
+      <!-- SHOP BUNDLES -->
+      <section class="view" data-view="shop-bundles" hidden>
+        <header class="page-head">
+          <div class="container">
+            <p class="eyebrow reveal">SHOP / MINK BUNDLES</p>
+            <h1 class="display reveal">Mink Bundles.</h1>
+            <p class="page-sub reveal">
+              Wefted virgin mink in 18"–32". Buy three, save 15% at checkout.
+            </p>
+          </div>
+        </header>
+        <div class="container">
+          <div class="filter-bar reveal" data-filter-bar="bundles">
+            <button data-filter="all" class="active">All</button>
+            <button data-filter="straight">Straight</button>
+            <button data-filter="body">Body Wave</button>
+            <button data-filter="curly">Curly</button>
+            <button data-filter="water">Water Wave</button>
+          </div>
+          <div class="product-grid" id="bundlesGrid"></div>
+        </div>
+      </section>
+
+      <!-- TALENT STYLISTS -->
+      <section class="view" data-view="talent-stylists" hidden>
+        <header class="page-head">
+          <div class="container">
+            <p class="eyebrow reveal">TALENT / HAIR</p>
+            <h1 class="display reveal">Master Stylists.</h1>
+            <p class="page-sub reveal">
+              Each chair, hand-picked. Each install, signed.
+            </p>
+          </div>
+        </header>
+        <div class="container">
+          <div class="staff-grid" id="stylistsGrid"></div>
+          <section class="services-table reveal">
+            <h2 class="display-md">Hair Service Menu</h2>
+            <div class="services-list" id="hairServicesList"></div>
+            <a href="#book" data-link class="btn btn-primary">Book a Stylist</a>
+          </section>
+        </div>
+      </section>
+
+      <!-- TALENT LASH -->
+      <section class="view" data-view="talent-lash" hidden>
+        <header class="page-head">
+          <div class="container">
+            <p class="eyebrow reveal">TALENT / LASH & BEAUTY</p>
+            <h1 class="display reveal">Lash & Beauty.</h1>
+            <p class="page-sub reveal">
+              Lash artistry, brows, glam beats and clear-glass nails.
+            </p>
+          </div>
+        </header>
+        <div class="container">
+          <div class="staff-grid" id="lashGrid"></div>
+          <section class="services-table reveal">
+            <h2 class="display-md">Beauty Service Menu</h2>
+            <div class="services-list" id="beautyServicesList"></div>
+            <a href="#book" data-link class="btn btn-primary">Book Beauty</a>
+          </section>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="view" data-view="contact" hidden>
+        <header class="page-head">
+          <div class="container">
+            <p class="eyebrow reveal">CONTACT</p>
+            <h1 class="display reveal">Let's talk.</h1>
+            <p class="page-sub reveal">
+              For collabs, classes, press or anything else — we read every
+              message.
+            </p>
+          </div>
+        </header>
+        <div class="container contact-wrap">
+          <div class="contact-info reveal">
+            <div class="contact-block">
+              <p class="eyebrow">CALL</p>
+              <a href="tel:+17184847781" class="contact-big">718.484.7781</a>
+            </div>
+            <div class="contact-block">
+              <p class="eyebrow">EMAIL</p>
+              <a href="mailto:contact@thinkmink.nyc" class="contact-big">contact@thinkmink.nyc</a>
+            </div>
+            <div class="contact-block">
+              <p class="eyebrow">SOCIAL</p>
+              <a href="https://instagram.com/thinkmink.nyc" target="_blank" rel="noopener">@thinkmink.nyc — Instagram</a>
+              <a href="https://facebook.com/ThinkMinkNYC" target="_blank" rel="noopener">ThinkMinkNYC — Facebook</a>
+            </div>
+            <div class="contact-block">
+              <p class="eyebrow">HOURS</p>
+              <p>Mon–Sat &nbsp; 10am – 8pm</p>
+              <p>Sun &nbsp; By appointment only</p>
+            </div>
+            <div class="contact-block">
+              <p class="eyebrow">STUDIO</p>
+              <p>Brooklyn, New York</p>
+              <p>Exact address shared upon booking confirmation.</p>
+            </div>
+          </div>
+
+          <form class="contact-form reveal" id="contactForm">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span>What's this about?</span>
+              <select name="topic">
+                <option>General</option>
+                <option>Booking question</option>
+                <option>Wholesale / bundles</option>
+                <option>Press / collab</option>
+                <option>Class enrollment</option>
+              </select>
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p class="form-note" id="contactNote" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- BOOK APPOINTMENT -->
+      <section class="view" data-view="book" hidden>
+        <header class="page-head">
+          <div class="container">
+            <p class="eyebrow reveal">BOOK</p>
+            <h1 class="display reveal">Book your chair.</h1>
+            <p class="page-sub reveal">
+              Pick a service, pick a time, drop your info. We confirm by email
+              within 24h.
+            </p>
+          </div>
+        </header>
+        <div class="container">
+          <div class="booking" id="booking">
+            <!-- Stepper -->
+            <ol class="stepper" id="stepper">
+              <li data-step="1" class="active">Service</li>
+              <li data-step="2">Stylist</li>
+              <li data-step="3">Date & Time</li>
+              <li data-step="4">Your Info</li>
+              <li data-step="5">Confirm</li>
+            </ol>
+
+            <!-- Step 1: Service -->
+            <div class="step" data-step="1">
+              <h3>Choose a service</h3>
+              <div class="service-picker" id="servicePicker"></div>
+            </div>
+
+            <!-- Step 2: Stylist -->
+            <div class="step" data-step="2" hidden>
+              <h3>Choose your artist</h3>
+              <div class="stylist-picker" id="stylistPicker"></div>
+            </div>
+
+            <!-- Step 3: Date/Time -->
+            <div class="step" data-step="3" hidden>
+              <h3>Pick a date & time</h3>
+              <div class="calendar" id="calendar"></div>
+              <div class="timeslots" id="timeslots"></div>
+            </div>
+
+            <!-- Step 4: Info -->
+            <div class="step" data-step="4" hidden>
+              <h3>Your details</h3>
+              <form class="info-form" id="infoForm">
+                <label>
+                  <span>Full name</span>
+                  <input type="text" name="name" required />
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input type="email" name="email" required />
+                </label>
+                <label>
+                  <span>Phone</span>
+                  <input type="tel" name="phone" required />
+                </label>
+                <label>
+                  <span>Notes for your artist (optional)</span>
+                  <textarea name="notes" rows="3"></textarea>
+                </label>
+                <label class="check">
+                  <input type="checkbox" name="agree" required />
+                  <span>
+                    I've read the <a href="#book" class="policy-link" id="policyLink">deposit & cancellation policy</a>.
+                  </span>
+                </label>
+              </form>
+            </div>
+
+            <!-- Step 5: Confirm -->
+            <div class="step" data-step="5" hidden>
+              <h3>Review & confirm</h3>
+              <div class="confirm-card" id="confirmCard"></div>
+            </div>
+
+            <!-- Nav buttons -->
+            <div class="step-nav">
+              <button class="btn btn-ghost" id="backBtn" hidden>Back</button>
+              <button class="btn btn-primary" id="nextBtn" disabled>Next</button>
+            </div>
+
+            <!-- Success state -->
+            <div class="booking-success" id="bookingSuccess" hidden>
+              <div class="check-anim">✓</div>
+              <h3>You're booked.</h3>
+              <p>
+                Confirmation #<span id="confirmId"></span> sent to
+                <span id="confirmEmail"></span>.
+              </p>
+              <p class="muted">
+                (This is a demo — bookings are stored locally so you can review
+                them in the Admin dashboard.)
+              </p>
+              <div class="success-actions">
+                <a href="#home" data-link class="btn btn-ghost">Back home</a>
+                <a href="#admin" data-link class="btn btn-primary">View admin</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADMIN -->
+      <section class="view" data-view="admin" hidden>
+        <header class="page-head dark">
+          <div class="container">
+            <p class="eyebrow reveal">INTERNAL</p>
+            <h1 class="display reveal">Admin Dashboard.</h1>
+            <p class="page-sub reveal">
+              Bookings, customers, and service performance — all in one view.
+            </p>
+          </div>
+        </header>
+        <div class="container">
+          <!-- Auth gate -->
+          <div class="admin-gate" id="adminGate">
+            <div class="admin-gate-card">
+              <h3>Owner login</h3>
+              <p class="muted">
+                Demo password: <code>thinkmink2026</code>
+              </p>
+              <input
+                type="password"
+                id="adminPass"
+                placeholder="Password"
+                autocomplete="current-password"
+              />
+              <button class="btn btn-primary" id="adminLogin">Unlock</button>
+              <p class="form-note" id="adminError"></p>
+            </div>
+          </div>
+
+          <!-- Dashboard -->
+          <div class="admin-dash" id="adminDash" hidden>
+            <div class="admin-bar">
+              <div class="admin-toolbar">
+                <button class="btn btn-ghost" id="exportCsv">Export CSV</button>
+                <button class="btn btn-ghost" id="seedDemo">Seed demo data</button>
+                <button class="btn btn-ghost danger" id="clearAll">Clear all</button>
+              </div>
+              <button class="btn btn-ghost" id="adminLogout">Logout</button>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat-card">
+                <p class="stat-label">Total bookings</p>
+                <p class="stat-value" id="statTotal">0</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-label">Upcoming</p>
+                <p class="stat-value" id="statUpcoming">0</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-label">Projected revenue</p>
+                <p class="stat-value" id="statRevenue">$0</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-label">Unique customers</p>
+                <p class="stat-value" id="statCustomers">0</p>
+              </div>
+            </div>
+
+            <div class="admin-cols">
+              <section class="admin-panel">
+                <header class="panel-head">
+                  <h3>Upcoming bookings</h3>
+                  <input
+                    type="search"
+                    id="bookingSearch"
+                    placeholder="Search name, email, service…"
+                  />
+                </header>
+                <div class="bookings-table" id="bookingsTable"></div>
+              </section>
+
+              <section class="admin-panel">
+                <h3>Service popularity</h3>
+                <div class="bars" id="serviceBars"></div>
+              </section>
+            </div>
+
+            <section class="admin-panel">
+              <h3>Customer list</h3>
+              <div class="customers-table" id="customersTable"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Policy modal -->
+    <div class="modal" id="policyModal" hidden>
+      <div class="modal-card">
+        <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+        <h3>Think Mink Booking Policy</h3>
+        <p>
+          A <strong>50% non-refundable deposit</strong> is required to secure
+          all appointments. Deposits are applied to the final balance.
+        </p>
+        <p>
+          <strong>Cancellations</strong> made more than 48 hours before your
+          appointment can be rescheduled once at no charge. Inside 48 hours,
+          the deposit is forfeit.
+        </p>
+        <p>
+          <strong>No-shows / 15+ minute lateness</strong> are treated as
+          cancellations.
+        </p>
+        <p>
+          <strong>Hair must be prepped</strong>: washed, blow-dried, and free
+          of any product unless your service includes a wash.
+        </p>
+        <p>
+          By booking, you agree to the above. Questions? Email
+          contact@thinkmink.nyc.
+        </p>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" hidden></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="brand-think">Think</span>
+            <span class="brand-mink">Mink</span>
+            <span class="brand-nyc">NYC</span>
+          </div>
+          <p class="muted">Luxury hair, lashes & beauty — New York City.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Shop</p>
+          <a href="#shop-wigs" data-link>Wigs</a>
+          <a href="#shop-frontals" data-link>Frontals & Closures</a>
+          <a href="#shop-bundles" data-link>Mink Bundles</a>
+        </div>
+        <div>
+          <p class="eyebrow">Salon</p>
+          <a href="#talent-stylists" data-link>Hair Stylists</a>
+          <a href="#talent-lash" data-link>Lash Techs</a>
+          <a href="#book" data-link>Book Appointment</a>
+        </div>
+        <div>
+          <p class="eyebrow">Reach us</p>
+          <a href="tel:+17184847781">718.484.7781</a>
+          <a href="mailto:contact@thinkmink.nyc">contact@thinkmink.nyc</a>
+          <a href="https://instagram.com/thinkmink.nyc" target="_blank" rel="noopener">@thinkmink.nyc</a>
+          <a href="#admin" data-link class="admin-tag">Owner login →</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span id="year"></span> Think Mink NYC. All rights reserved.</p>
+        <p class="muted">Demo build — for showcase only.</p>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
