@@ -103,7 +103,7 @@
 
   // === Loader ===
   let loaderHidden = false;
-  function hideLoader(delay = 1100) {
+  function hideLoader(delay = 400) {
     if (loaderHidden) return;
     setTimeout(() => {
       const el = $("#loader");
@@ -116,20 +116,19 @@
     const el = $("#loader");
     if (!el) return;
     const dismiss = () => hideLoader(0);
-    el.addEventListener("click", dismiss);
-    el.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " " || e.key === "Escape") dismiss();
-    });
+    ["click", "touchstart", "pointerdown"].forEach((evt) =>
+      el.addEventListener(evt, dismiss, { passive: true })
+    );
     document.addEventListener("keydown", (e) => {
-      if (!loaderHidden && e.key === "Escape") dismiss();
+      if (!loaderHidden) dismiss();
     });
-    // Watchdog: even if boot fails, force-hide after 2.5s
+    // Watchdog: even if everything fails, force-hide after 900ms
     setTimeout(() => {
       if (!loaderHidden) {
         el.classList.add("hidden");
         loaderHidden = true;
       }
-    }, 2500);
+    }, 900);
   }
 
   // === Cursor halo ===
