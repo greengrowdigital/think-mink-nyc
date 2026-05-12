@@ -372,28 +372,6 @@
     });
   }
 
-  // === Policy modal ===
-  function initPolicyModal() {
-    const modal = $("#policyModal");
-    const open = () => {
-      modal.hidden = false;
-    };
-    const close = () => {
-      modal.hidden = true;
-    };
-    document.addEventListener("click", (e) => {
-      if (e.target.matches(".policy-link") || e.target.id === "policyLink") {
-        e.preventDefault();
-        open();
-      }
-      if (e.target === modal) close();
-    });
-    $("#modalClose").addEventListener("click", close);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !modal.hidden) close();
-    });
-  }
-
   // === Year ===
   function initFooter() {
     $("#year").textContent = new Date().getFullYear();
@@ -423,7 +401,6 @@
     safe("renderStaffPages", renderStaffPages);
     safe("renderMosaic", renderMosaic);
     safe("initContactForm", initContactForm);
-    safe("initPolicyModal", initPolicyModal);
     safe("initFooter", initFooter);
 
     if (window.TM_initBooking) safe("initBooking", window.TM_initBooking);

@@ -1287,11 +1287,6 @@ button {
   width: auto;
   margin: 0;
 }
-.policy-link {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-}
 
 .confirm-card {
   background: var(--paper-2);
