@@ -101,26 +101,6 @@
     });
   }
 
-  // === Cursor halo ===
-  function initCursor() {
-    const halo = $("#cursorHalo");
-    let tx = 0,
-      ty = 0,
-      x = 0,
-      y = 0;
-    document.addEventListener("mousemove", (e) => {
-      tx = e.clientX;
-      ty = e.clientY;
-    });
-    function tick() {
-      x += (tx - x) * 0.15;
-      y += (ty - y) * 0.15;
-      halo.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
-      requestAnimationFrame(tick);
-    }
-    tick();
-  }
-
   // === Nav scroll state ===
   function initNavScroll() {
     const nav = $("#nav");
@@ -143,20 +123,17 @@
 
   // === Render product cards ===
   function productCardHTML(p, tag) {
-    const grad =
-      "background: linear-gradient(135deg, " +
-      p.grad[0] +
-      " 0%, " +
-      p.grad[1] +
-      " 100%);";
-    const dark = p.darkText ? "color: #1a1a1a;" : "color: rgba(255,255,255,0.92);";
+    const tint = `linear-gradient(160deg, ${p.grad[0]}cc 0%, ${p.grad[1]}aa 100%)`;
+    const img = `https://picsum.photos/seed/mink-${p.id}/600/750?grayscale`;
     return `
       <article class="product-card reveal" data-pid="${p.id}" data-tags="${(
       p.tags || []
     ).join(",")}">
         <div class="product-media">
           ${tag ? `<span class="product-tag">${tag}</span>` : ""}
-          <div class="swatch" style="${grad} ${dark}">${p.name}</div>
+          <img class="media-img" src="${img}" loading="lazy" alt="${p.name}" />
+          <div class="media-tint" style="background: ${tint};"></div>
+          <div class="media-label">${p.name}</div>
         </div>
         <div class="product-info">
           <div>
@@ -221,27 +198,35 @@
     if (!rail) return;
     rail.innerHTML = TM_DATA.stylists
       .slice(0, 5)
-      .map(
-        (s) => `
+      .map((s) => {
+        const tint = `linear-gradient(180deg, ${s.grad[0]}55 0%, #000000ee 100%)`;
+        const img = `https://picsum.photos/seed/stylist-${s.id}/600/800?grayscale`;
+        return `
         <a href="#talent-stylists" data-link class="talent-card">
-          <div class="portrait" style="background: linear-gradient(135deg, ${s.grad[0]}, ${s.grad[1]});">
+          <img class="media-img" src="${img}" loading="lazy" alt="${s.name}" />
+          <div class="media-tint" style="background: ${tint};"></div>
+          <div class="portrait">
             <span>
               <span class="name">${s.name}</span>
               <span class="role">${s.role}</span>
             </span>
           </div>
         </a>
-      `
-      )
+      `;
+      })
       .join("");
   }
 
   // === Staff pages ===
   function staffCardHTML(s) {
+    const tint = `linear-gradient(180deg, ${s.grad[0]}33 0%, ${s.grad[1]}bb 100%)`;
+    const img = `https://picsum.photos/seed/staff-${s.id}/600/750?grayscale`;
     return `
       <article class="staff-card reveal">
-        <div class="staff-portrait" style="background: linear-gradient(135deg, ${s.grad[0]}, ${s.grad[1]});">
-          ${s.name.split(" ")[0]}
+        <div class="staff-portrait">
+          <img class="media-img" src="${img}" loading="lazy" alt="${s.name}" />
+          <div class="media-tint" style="background: ${tint};"></div>
+          <span class="staff-portrait-label">${s.name.split(" ")[0]}</span>
         </div>
         <div class="staff-body">
           <h3>${s.name}</h3>
@@ -315,11 +300,16 @@
       ["#664398", "#0a0a0a"],
     ];
     grid.innerHTML = tags
-      .map(
-        (t, i) => `
-        <div class="mosaic-tile reveal" data-tag="${t}" style="background: linear-gradient(135deg, ${grads[i][0]}, ${grads[i][1]});"></div>
-      `
-      )
+      .map((t, i) => {
+        const tint = `linear-gradient(160deg, ${grads[i][0]}66 0%, ${grads[i][1]}bb 100%)`;
+        const img = `https://picsum.photos/seed/mosaic-${i}/500/500?grayscale`;
+        return `
+          <div class="mosaic-tile reveal" data-tag="${t}">
+            <img class="media-img" src="${img}" loading="lazy" alt="${t}" />
+            <div class="media-tint" style="background: ${tint};"></div>
+          </div>
+        `;
+      })
       .join("");
   }
 
@@ -359,7 +349,6 @@
     safe("initRouter", initRouter);
     safe("initNavScroll", initNavScroll);
     safe("initMobileMenu", initMobileMenu);
-    safe("initCursor", initCursor);
     safe("renderFeatured", renderFeatured);
     safe("renderProductPages", renderProductPages);
     safe("initFilters", initFilters);
