@@ -101,36 +101,6 @@
     });
   }
 
-  // === Loader ===
-  let loaderHidden = false;
-  function hideLoader(delay = 400) {
-    if (loaderHidden) return;
-    setTimeout(() => {
-      const el = $("#loader");
-      if (!el) return;
-      el.classList.add("hidden");
-      loaderHidden = true;
-    }, delay);
-  }
-  function initLoaderDismiss() {
-    const el = $("#loader");
-    if (!el) return;
-    const dismiss = () => hideLoader(0);
-    ["click", "touchstart", "pointerdown"].forEach((evt) =>
-      el.addEventListener(evt, dismiss, { passive: true })
-    );
-    document.addEventListener("keydown", (e) => {
-      if (!loaderHidden) dismiss();
-    });
-    // Watchdog: even if everything fails, force-hide after 900ms
-    setTimeout(() => {
-      if (!loaderHidden) {
-        el.classList.add("hidden");
-        loaderHidden = true;
-      }
-    }, 900);
-  }
-
   // === Cursor halo ===
   function initCursor() {
     const halo = $("#cursorHalo");
@@ -378,9 +348,6 @@
 
   // === Boot ===
   function boot() {
-    // Loader dismiss is wired up FIRST so a failure below can't trap users
-    initLoaderDismiss();
-
     const safe = (label, fn) => {
       try {
         fn();
@@ -407,7 +374,6 @@
 
     safe("setRoute", () => setRoute(currentRoute(), { silent: true }));
     safe("observeReveals", () => observeReveals());
-    hideLoader();
   }
 
   if (document.readyState === "loading") {
