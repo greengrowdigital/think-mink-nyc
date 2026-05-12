@@ -102,8 +102,34 @@
   }
 
   // === Loader ===
-  function hideLoader() {
-    setTimeout(() => $("#loader").classList.add("hidden"), 1100);
+  let loaderHidden = false;
+  function hideLoader(delay = 1100) {
+    if (loaderHidden) return;
+    setTimeout(() => {
+      const el = $("#loader");
+      if (!el) return;
+      el.classList.add("hidden");
+      loaderHidden = true;
+    }, delay);
+  }
+  function initLoaderDismiss() {
+    const el = $("#loader");
+    if (!el) return;
+    const dismiss = () => hideLoader(0);
+    el.addEventListener("click", dismiss);
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Escape") dismiss();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!loaderHidden && e.key === "Escape") dismiss();
+    });
+    // Watchdog: even if boot fails, force-hide after 2.5s
+    setTimeout(() => {
+      if (!loaderHidden) {
+        el.classList.add("hidden");
+        loaderHidden = true;
+      }
+    }, 2500);
   }
 
   // === Cursor halo ===
@@ -375,26 +401,36 @@
 
   // === Boot ===
   function boot() {
-    initRouter();
-    initNavScroll();
-    initMobileMenu();
-    initCursor();
-    renderFeatured();
-    renderProductPages();
-    initFilters();
-    renderTalentRail();
-    renderStaffPages();
-    renderMosaic();
-    initContactForm();
-    initPolicyModal();
-    initFooter();
+    // Loader dismiss is wired up FIRST so a failure below can't trap users
+    initLoaderDismiss();
 
-    // Booking + admin init their own listeners
-    if (window.TM_initBooking) window.TM_initBooking();
-    if (window.TM_initAdmin) window.TM_initAdmin();
+    const safe = (label, fn) => {
+      try {
+        fn();
+      } catch (err) {
+        console.error("[Think Mink] " + label + " failed:", err);
+      }
+    };
 
-    setRoute(currentRoute(), { silent: true });
-    observeReveals();
+    safe("initRouter", initRouter);
+    safe("initNavScroll", initNavScroll);
+    safe("initMobileMenu", initMobileMenu);
+    safe("initCursor", initCursor);
+    safe("renderFeatured", renderFeatured);
+    safe("renderProductPages", renderProductPages);
+    safe("initFilters", initFilters);
+    safe("renderTalentRail", renderTalentRail);
+    safe("renderStaffPages", renderStaffPages);
+    safe("renderMosaic", renderMosaic);
+    safe("initContactForm", initContactForm);
+    safe("initPolicyModal", initPolicyModal);
+    safe("initFooter", initFooter);
+
+    if (window.TM_initBooking) safe("initBooking", window.TM_initBooking);
+    if (window.TM_initAdmin) safe("initAdmin", window.TM_initAdmin);
+
+    safe("setRoute", () => setRoute(currentRoute(), { silent: true }));
+    safe("observeReveals", () => observeReveals());
     hideLoader();
   }
 
