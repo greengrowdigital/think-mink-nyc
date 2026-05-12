@@ -77,13 +77,21 @@
             muted
             loop
             playsinline
-            poster="https://picsum.photos/seed/thinkmink-hero/1920/1080?grayscale"
+            poster="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1920&q=80&auto=format&fit=crop"
+            onerror="this.style.display='none'"
           >
             <source
               src="https://cdn.coverr.co/videos/coverr-a-woman-in-the-salon-7470/1080p.mp4"
               type="video/mp4"
             />
           </video>
+          <img
+            class="hero-fallback"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1920&q=80&auto=format&fit=crop"
+            onerror="this.onerror=null;this.src='https://picsum.photos/seed/tm-hero/1920/1080?grayscale';"
+            alt=""
+            aria-hidden="true"
+          />
           <div class="hero-overlay"></div>
           <div class="hero-content">
             <p class="eyebrow reveal">EST. NEW YORK CITY</p>
@@ -156,6 +164,39 @@
           </div>
         </section>
 
+        <!-- Why us -->
+        <section class="why container">
+          <header class="section-head reveal">
+            <p class="eyebrow">WHY THINK MINK</p>
+            <h2 class="display-md">Four things you'll feel the difference in.</h2>
+          </header>
+          <div class="why-grid" id="whyUsGrid"></div>
+        </section>
+
+        <!-- Brand story -->
+        <section class="story">
+          <div class="container story-grid">
+            <div class="story-text reveal">
+              <p class="eyebrow">THE STORY</p>
+              <h2 class="display-md">Built by a stylist, for stylists.</h2>
+              <p>
+                Think Mink started behind one chair in a Brooklyn salon —
+                founder Jenell laying frontals that looked like scalp and selling
+                bundles out of her bag. Word traveled. The chair turned into a
+                studio. The bundles turned into a brand.
+              </p>
+              <p>
+                Today, every wig, frontal, closure and bundle in the shop
+                passes through Jenell's hands before it touches a head. Every
+                stylist in the studio trained beside her. That's why the work
+                holds up.
+              </p>
+              <a href="#talent-stylists" data-link class="link-arrow">Meet the team →</a>
+            </div>
+            <div class="story-media reveal" id="storyMedia"></div>
+          </div>
+        </section>
+
         <!-- Press / testimonials -->
         <section class="press container">
           <div class="quote reveal">
@@ -168,6 +209,44 @@
           <div class="press-logos reveal">
             <span>FEATURED IN</span>
             <strong>ESSENCE</strong>·<strong>HYPEBAE</strong>·<strong>REFINERY29</strong>·<strong>VOGUE.IT</strong>
+          </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials container">
+          <header class="section-head reveal">
+            <p class="eyebrow">CLIENT STORIES</p>
+            <h2 class="display-md">The chair leaves a mark.</h2>
+          </header>
+          <div class="testimonials-grid" id="testimonialsGrid"></div>
+        </section>
+
+        <!-- Home FAQ -->
+        <section class="home-faq container">
+          <header class="section-head reveal">
+            <p class="eyebrow">FAQ</p>
+            <h2 class="display-md">Before you book.</h2>
+            <a href="#contact" data-link class="link-arrow">All questions →</a>
+          </header>
+          <div class="faq-list" data-limit="5"></div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+          <div class="container newsletter-inner">
+            <div class="reveal">
+              <p class="eyebrow">FIRST DIBS</p>
+              <h2 class="display-md">Drops in your inbox.</h2>
+              <p class="muted">
+                New textures, restocks, class openings and studio events — no
+                spam, unsubscribe whenever.
+              </p>
+            </div>
+            <form class="newsletter-form reveal" id="newsletterForm">
+              <input type="email" name="email" placeholder="Your email" required />
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+              <p class="form-note" id="newsletterNote" aria-live="polite"></p>
+            </form>
           </div>
         </section>
 
@@ -193,6 +272,20 @@
             </p>
           </div>
         </header>
+
+        <section class="shop-intro container">
+          <div class="reveal">
+            <p class="eyebrow">WHAT YOU'RE GETTING</p>
+            <h2 class="display-md">100% virgin mink hair. Single donor.</h2>
+            <p>
+              Every wig in our shop is hand-built on mink-grade virgin hair —
+              cuticles aligned, never blended, never silicone-coated. Color it.
+              Heat-style it. Wash it. Live in it. With basic care it'll outlast
+              every wig you've ever bought.
+            </p>
+          </div>
+        </section>
+
         <div class="container">
           <div class="filter-bar reveal" data-filter-bar="wigs">
             <button data-filter="all" class="active">All</button>
@@ -203,6 +296,36 @@
           </div>
           <div class="product-grid" id="wigsGrid"></div>
         </div>
+
+        <section class="length-section container">
+          <header class="section-head reveal">
+            <p class="eyebrow">LENGTH GUIDE</p>
+            <h2 class="display-md">Pick your inches.</h2>
+          </header>
+          <div class="length-table reveal" id="lengthGuide"></div>
+        </section>
+
+        <section class="care-section">
+          <div class="container">
+            <header class="section-head reveal">
+              <p class="eyebrow">CARE GUIDE</p>
+              <h2 class="display-md">Make it last 2+ years.</h2>
+            </header>
+            <div class="care-grid" id="careGuide"></div>
+          </div>
+        </section>
+
+        <section class="shop-cta container">
+          <div class="reveal cta-band">
+            <div>
+              <h3 class="display-md">Not sure which to pick?</h3>
+              <p class="muted">
+                Book a 15-minute virtual consult and we'll match you to a unit.
+              </p>
+            </div>
+            <a href="#contact" data-link class="btn btn-primary">Get matched</a>
+          </div>
+        </section>
       </section>
 
       <!-- SHOP FRONTALS -->
@@ -217,6 +340,38 @@
             </p>
           </div>
         </header>
+
+        <section class="shop-intro container">
+          <div class="reveal">
+            <p class="eyebrow">WHAT'S THE DIFFERENCE</p>
+            <h2 class="display-md">Frontal vs closure — pick what you part.</h2>
+            <div class="explain-grid">
+              <div>
+                <h3>Frontal (13×4)</h3>
+                <p>
+                  Ear-to-ear coverage. Lets you part anywhere from temple to
+                  temple and pull into ponies. Best for high-style versatility
+                  and full sew-ins.
+                </p>
+              </div>
+              <div>
+                <h3>Closure (4×4 / 5×5)</h3>
+                <p>
+                  A square piece for the crown. Quicker to install, less lace
+                  to maintain. Best if you part the same way every day.
+                </p>
+              </div>
+              <div>
+                <h3>HD lace</h3>
+                <p>
+                  Transparent, undetectable lace that disappears on every skin
+                  tone. Knots can be bleached for a flat melt.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div class="container">
           <div class="filter-bar reveal" data-filter-bar="frontals">
             <button data-filter="all" class="active">All</button>
@@ -226,6 +381,19 @@
           </div>
           <div class="product-grid" id="frontalsGrid"></div>
         </div>
+
+        <section class="shop-cta container">
+          <div class="reveal cta-band">
+            <div>
+              <h3 class="display-md">Need yours installed?</h3>
+              <p class="muted">
+                Book a frontal sew-in install or a glueless lay with one of our
+                stylists.
+              </p>
+            </div>
+            <a href="#book" data-link class="btn btn-primary">Book install</a>
+          </div>
+        </section>
       </section>
 
       <!-- SHOP BUNDLES -->
@@ -239,6 +407,36 @@
             </p>
           </div>
         </header>
+
+        <section class="shop-intro container">
+          <div class="reveal">
+            <p class="eyebrow">BUNDLE MATH</p>
+            <h2 class="display-md">How much hair do you need?</h2>
+            <div class="bundle-math">
+              <div class="bm-row">
+                <strong>Up to 18"</strong>
+                <span>2 bundles</span>
+              </div>
+              <div class="bm-row">
+                <strong>20"–24"</strong>
+                <span>3 bundles</span>
+              </div>
+              <div class="bm-row">
+                <strong>26"–30"</strong>
+                <span>3–4 bundles</span>
+              </div>
+              <div class="bm-row">
+                <strong>30"+</strong>
+                <span>4 bundles</span>
+              </div>
+            </div>
+            <p class="muted">
+              Add a closure or frontal for a complete sew-in. Buy three bundles
+              and the third is 15% off at checkout.
+            </p>
+          </div>
+        </section>
+
         <div class="container">
           <div class="filter-bar reveal" data-filter-bar="bundles">
             <button data-filter="all" class="active">All</button>
@@ -249,6 +447,19 @@
           </div>
           <div class="product-grid" id="bundlesGrid"></div>
         </div>
+
+        <section class="shop-cta container">
+          <div class="reveal cta-band">
+            <div>
+              <h3 class="display-md">Wholesale or salon inquiries?</h3>
+              <p class="muted">
+                Pricing for stylists and shops. Email
+                <a href="mailto:contact@thinkmink.nyc">contact@thinkmink.nyc</a>.
+              </p>
+            </div>
+            <a href="#contact" data-link class="btn btn-primary">Get in touch</a>
+          </div>
+        </section>
       </section>
 
       <!-- TALENT STYLISTS -->
@@ -268,6 +479,46 @@
             <h2 class="display-md">Hair Service Menu</h2>
             <div class="services-list" id="hairServicesList"></div>
             <a href="#book" data-link class="btn btn-primary">Book a Stylist</a>
+          </section>
+
+          <section class="how-to-book reveal">
+            <h2 class="display-md">How booking works.</h2>
+            <ol class="how-list">
+              <li>
+                <strong>Pick your chair.</strong> Browse stylists above, then
+                tap Book.
+              </li>
+              <li>
+                <strong>Pick your service.</strong> Wig install, sew-in,
+                braids, blowout — whatever you need.
+              </li>
+              <li>
+                <strong>Pay the 50% deposit.</strong> It applies to your final
+                balance. Non-refundable inside 48 hours.
+              </li>
+              <li>
+                <strong>Come prepped.</strong> Clean, blow-dried hair unless
+                your booking includes a wash.
+              </li>
+            </ol>
+          </section>
+
+          <section class="education-band">
+            <div class="education-inner reveal">
+              <p class="eyebrow">EDUCATION</p>
+              <h2 class="display-md">Frontal Class with Jenell.</h2>
+              <p>
+                A private, hands-on 4-hour class covering customization, melt
+                technique, lay, and a full client install. Includes all
+                materials and a digital reference packet you keep for life.
+              </p>
+              <div class="education-row">
+                <div><strong>Duration</strong><span>4 hours</span></div>
+                <div><strong>Format</strong><span>1-on-1, in-studio</span></div>
+                <div><strong>Tuition</strong><span>$625</span></div>
+              </div>
+              <a href="#contact" data-link class="btn btn-primary">Apply for a class</a>
+            </div>
           </section>
         </div>
       </section>
@@ -289,6 +540,47 @@
             <h2 class="display-md">Beauty Service Menu</h2>
             <div class="services-list" id="beautyServicesList"></div>
             <a href="#book" data-link class="btn btn-primary">Book Beauty</a>
+          </section>
+
+          <section class="lash-types reveal">
+            <h2 class="display-md">Three lash sets to choose from.</h2>
+            <div class="lash-grid">
+              <article>
+                <h3>Classic</h3>
+                <p>
+                  One extension per natural lash. The most natural look — like
+                  you woke up with longer lashes.
+                </p>
+                <span class="lash-time">90 min · $180</span>
+              </article>
+              <article class="featured">
+                <h3>Hybrid</h3>
+                <p>
+                  A mix of classics and fans. Texture, density and length —
+                  our most-booked set.
+                </p>
+                <span class="lash-time">90 min · $200</span>
+              </article>
+              <article>
+                <h3>Volume</h3>
+                <p>
+                  Multiple ultra-fine extensions per lash, hand-fanned. Fluffy,
+                  dramatic, full.
+                </p>
+                <span class="lash-time">100 min · $220</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="aftercare reveal">
+            <h2 class="display-md">Lash aftercare.</h2>
+            <ul class="check-list">
+              <li>No water on lashes for 24 hours after your set.</li>
+              <li>Brush gently every morning with a spoolie.</li>
+              <li>Avoid oil-based products — they break down the adhesive.</li>
+              <li>Sleep on your back or use a silk pillowcase.</li>
+              <li>Fill every 2–3 weeks to keep them looking new.</li>
+            </ul>
           </section>
         </div>
       </section>
@@ -359,6 +651,14 @@
             <p class="form-note" id="contactNote" aria-live="polite"></p>
           </form>
         </div>
+
+        <section class="full-faq container">
+          <header class="section-head reveal">
+            <p class="eyebrow">FAQ</p>
+            <h2 class="display-md">Everything we get asked.</h2>
+          </header>
+          <div class="faq-list"></div>
+        </section>
       </section>
 
       <!-- BOOK APPOINTMENT -->
@@ -373,6 +673,32 @@
             </p>
           </div>
         </header>
+
+        <section class="prep-band">
+          <div class="container prep-grid">
+            <div class="reveal">
+              <p class="eyebrow">BEFORE YOU ARRIVE</p>
+              <h2 class="display-md">Show up prepped.</h2>
+              <ul class="check-list">
+                <li>Hair washed and blow-dried (unless your service includes a wash).</li>
+                <li>No product or build-up at the roots.</li>
+                <li>Bring your own hair if you didn't buy from the shop.</li>
+                <li>Arrive 5 min early — 15 min late is a forfeit.</li>
+              </ul>
+            </div>
+            <div class="reveal">
+              <p class="eyebrow">POLICY</p>
+              <h2 class="display-md">Deposit & cancellation.</h2>
+              <ul class="check-list">
+                <li>50% non-refundable deposit secures your slot.</li>
+                <li>Reschedule once free with 48+ hours notice.</li>
+                <li>No-shows / 15+ minute lateness forfeit the deposit.</li>
+                <li>Questions? <a href="mailto:contact@thinkmink.nyc">Email us</a>.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <div class="container">
           <div class="booking" id="booking">
             <!-- Stepper -->

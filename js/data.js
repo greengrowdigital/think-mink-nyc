@@ -439,6 +439,175 @@ const TM_DATA = {
     return ["wig-4", "wig-1", "fc-5", "wig-8", "b-curly", "wig-6"];
   },
 
+  // === Testimonials ===
+  testimonials: [
+    {
+      quote:
+        "Walked in with a vision, walked out with the install of my life. Think Mink is the standard.",
+      name: "Aaliyah Brooks",
+      role: "Repeat client · Brooklyn",
+    },
+    {
+      quote:
+        "Jenell laid my 613 so flat my own mama didn't know it was a wig. I'll never go anywhere else.",
+      name: "Tasha Williams",
+      role: "Bride · Harlem",
+    },
+    {
+      quote:
+        "The frontal class was worth every dollar. I went from struggling at home to booking my own clients in three months.",
+      name: "Maya Rivera",
+      role: "Stylist · Bronx",
+    },
+    {
+      quote:
+        "I came in for a soft glam and stayed for the bundle deal. The hair quality is unreal — sheds zero, lays smooth.",
+      name: "Joelle Roman",
+      role: "Content creator · Queens",
+    },
+  ],
+
+  // === FAQ ===
+  faq: [
+    {
+      q: "What kind of hair do you use?",
+      a: "Every wig, frontal, closure and bundle in our shop is 100% virgin mink hair — single-donor, cuticle-aligned, and unprocessed. It will color-treat, heat-style, and last 2+ years with proper care.",
+    },
+    {
+      q: "How long does an install take?",
+      a: "A glueless install runs 90 minutes; a glued install runs 2 hours; a full frontal sew-in is around 3 hours. We'll never rush — but we won't keep you longer than the booked slot.",
+    },
+    {
+      q: "Can I bring my own hair to be installed?",
+      a: "Yes. We charge the same install fee whether you buy your hair from us or bring your own. Just make sure it's clean and wefted properly.",
+    },
+    {
+      q: "Do you take walk-ins?",
+      a: "No. Every chair is by appointment only so we can respect your time and ours. Book online 24/7.",
+    },
+    {
+      q: "What's the deposit policy?",
+      a: "50% of your service price is required at booking and is non-refundable. The deposit applies to your final balance.",
+    },
+    {
+      q: "Can I reschedule?",
+      a: "You can reschedule once at no charge if you give us more than 48 hours notice. Inside 48 hours, the deposit is forfeit.",
+    },
+    {
+      q: "What about no-shows or lateness?",
+      a: "We treat no-shows and arrivals 15+ minutes late as cancellations. We have a waitlist that fills these slots fast.",
+    },
+    {
+      q: "How should I prep my hair?",
+      a: "Wash, blow-dry, and detangle the night before. Come with no product in your hair unless your booking includes a wash service.",
+    },
+    {
+      q: "Do you offer classes?",
+      a: "Yes — Jenell runs a one-on-one frontal class (4 hours, $625) covering customization, melt technique, and a full install. Email for group classes and wholesale inquiries.",
+    },
+    {
+      q: "Do you ship hair?",
+      a: "Yes, anywhere in the US. Free NYC pickup at the studio. Orders ship within 2 business days.",
+    },
+  ],
+
+  // === Care guide ===
+  careGuide: [
+    {
+      step: "01",
+      title: "Wash gently",
+      body:
+        "Co-wash with a sulfate-free moisturizing cleanser every 7–10 days. Detangle from ends to roots with a wide-tooth comb — never tug on the lace.",
+    },
+    {
+      step: "02",
+      title: "Condition deeply",
+      body:
+        "Apply a leave-in conditioner mid-shaft to ends. Skip the roots/lace area to avoid breakdown of the knots.",
+    },
+    {
+      step: "03",
+      title: "Dry the right way",
+      body:
+        "Air-dry on a wig stand or low-heat blow dry. High heat shortens the lifespan dramatically — bonnet at night to preserve the style.",
+    },
+    {
+      step: "04",
+      title: "Heat with caution",
+      body:
+        "Always use a heat protectant. Never exceed 350°F for straightening or 380°F for curling. Mink hair handles heat well but it's still hair.",
+    },
+    {
+      step: "05",
+      title: "Re-up every 2–3 weeks",
+      body:
+        "Bring it in for a wash, refresh, and frontal re-lay every 2–3 weeks. Book the 'Wash & Set' or 'Re-Lay' service.",
+    },
+  ],
+
+  // === Length & density guide ===
+  lengthGuide: [
+    { len: '14"', desc: "Bob territory — falls at the chin" },
+    { len: '18"', desc: "Shoulder-length, ideal for daily wear" },
+    { len: '22"', desc: "Mid-back, our most-booked length" },
+    { len: '26"', desc: "Lower-back, dramatic with body wave" },
+    { len: '30"+', desc: "Waist-length, statement install" },
+  ],
+
+  // === Why us ===
+  whyUs: [
+    {
+      title: "Hair you can color",
+      body:
+        "Every strand is virgin and cuticle-aligned. Bleach it, dye it, tone it — it takes color like your own hair.",
+    },
+    {
+      title: "Hands-on customization",
+      body:
+        "Plucking, baby hairs, custom-bleached knots — done in-chair so you walk out finished, not 'almost'.",
+    },
+    {
+      title: "Built to last 2+ years",
+      body:
+        "Treat the hair right and it outlasts every wig you've ever bought. Maintenance services keep it new.",
+    },
+    {
+      title: "A team that books you back",
+      body:
+        "Every artist here owns their book and remembers your name. You're not a number; you're a recurring chair.",
+    },
+  ],
+
+  // === Curated portrait images (Black & Latina beauty) ===
+  // Tried Unsplash photo IDs first; img onerror falls back to picsum if any 404.
+  unsplashIds: [
+    "1494790108377-be9c29b29330",
+    "1488426862026-3ee34a7d66df",
+    "1573496359142-b8d87734a5a2",
+    "1531123897727-8f129e1688ce",
+    "1583394838336-acd977736f90",
+    "1492106087820-71f1a00d2b11",
+    "1564564321837-a57b7070ac4f",
+    "1594744803329-e58b31de8bf5",
+    "1503104834685-7205e8607eb6",
+    "1518837695005-2083093ee35b",
+    "1605497788044-5a32c7078486",
+    "1564415051645-cb13a85ec9b3",
+    "1531746020798-e6953c6e8e04",
+    "1573472068252-b6ec3ae08b1c",
+    "1487412720507-e7ab37603c6f",
+    "1530785602389-07594beb8b73",
+  ],
+
+  imgFor(seed, idx, w = 600, h = 750) {
+    const ids = this.unsplashIds;
+    const id = ids[Math.abs(idx) % ids.length];
+    return {
+      primary: `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`,
+      fallback: `https://picsum.photos/seed/${seed}/${w}/${h}?grayscale`,
+    };
+  },
+
   // === Helper lookups ===
   serviceById(id) {
     return this.services.find((s) => s.id === id);

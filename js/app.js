@@ -121,17 +121,22 @@
     });
   }
 
+  // Returns <img> markup using a curated Unsplash photo with picsum fallback.
+  function imgHTML(seed, idx, alt, w = 600, h = 750) {
+    const u = TM_DATA.imgFor(seed, idx, w, h);
+    return `<img class="media-img" src="${u.primary}" onerror="this.onerror=null;this.src='${u.fallback}';" loading="lazy" alt="${alt}" />`;
+  }
+
   // === Render product cards ===
-  function productCardHTML(p, tag) {
-    const tint = `linear-gradient(160deg, ${p.grad[0]}cc 0%, ${p.grad[1]}aa 100%)`;
-    const img = `https://picsum.photos/seed/mink-${p.id}/600/750?grayscale`;
+  function productCardHTML(p, tag, idx = 0) {
+    const tint = `linear-gradient(160deg, ${p.grad[0]}aa 0%, ${p.grad[1]}88 100%)`;
     return `
       <article class="product-card reveal" data-pid="${p.id}" data-tags="${(
       p.tags || []
     ).join(",")}">
         <div class="product-media">
           ${tag ? `<span class="product-tag">${tag}</span>` : ""}
-          <img class="media-img" src="${img}" loading="lazy" alt="${p.name}" />
+          ${imgHTML("mink-" + p.id, idx, p.name)}
           <div class="media-tint" style="background: ${tint};"></div>
           <div class="media-label">${p.name}</div>
         </div>
@@ -157,17 +162,26 @@
       )
       .filter(Boolean);
     grid.innerHTML = featured
-      .map((p, i) => productCardHTML(p, i === 0 ? "NEW DROP" : ""))
+      .map((p, i) => productCardHTML(p, i === 0 ? "NEW DROP" : "", i))
       .join("");
   }
 
   function renderProductPages() {
     const wigs = $("#wigsGrid");
-    if (wigs) wigs.innerHTML = TM_DATA.wigs.map((p) => productCardHTML(p)).join("");
+    if (wigs)
+      wigs.innerHTML = TM_DATA.wigs
+        .map((p, i) => productCardHTML(p, null, i))
+        .join("");
     const front = $("#frontalsGrid");
-    if (front) front.innerHTML = TM_DATA.frontals.map((p) => productCardHTML(p)).join("");
+    if (front)
+      front.innerHTML = TM_DATA.frontals
+        .map((p, i) => productCardHTML(p, null, i + 4))
+        .join("");
     const bundles = $("#bundlesGrid");
-    if (bundles) bundles.innerHTML = TM_DATA.bundles.map((p) => productCardHTML(p)).join("");
+    if (bundles)
+      bundles.innerHTML = TM_DATA.bundles
+        .map((p, i) => productCardHTML(p, null, i + 8))
+        .join("");
   }
 
   function initFilters() {
@@ -198,12 +212,11 @@
     if (!rail) return;
     rail.innerHTML = TM_DATA.stylists
       .slice(0, 5)
-      .map((s) => {
-        const tint = `linear-gradient(180deg, ${s.grad[0]}55 0%, #000000ee 100%)`;
-        const img = `https://picsum.photos/seed/stylist-${s.id}/600/800?grayscale`;
+      .map((s, i) => {
+        const tint = `linear-gradient(180deg, ${s.grad[0]}33 0%, #000000dd 100%)`;
         return `
         <a href="#talent-stylists" data-link class="talent-card">
-          <img class="media-img" src="${img}" loading="lazy" alt="${s.name}" />
+          ${imgHTML("stylist-" + s.id, i + 2, s.name, 600, 800)}
           <div class="media-tint" style="background: ${tint};"></div>
           <div class="portrait">
             <span>
@@ -218,13 +231,12 @@
   }
 
   // === Staff pages ===
-  function staffCardHTML(s) {
-    const tint = `linear-gradient(180deg, ${s.grad[0]}33 0%, ${s.grad[1]}bb 100%)`;
-    const img = `https://picsum.photos/seed/staff-${s.id}/600/750?grayscale`;
+  function staffCardHTML(s, i) {
+    const tint = `linear-gradient(180deg, ${s.grad[0]}22 0%, ${s.grad[1]}99 100%)`;
     return `
       <article class="staff-card reveal">
         <div class="staff-portrait">
-          <img class="media-img" src="${img}" loading="lazy" alt="${s.name}" />
+          ${imgHTML("staff-" + s.id, i + 5, s.name)}
           <div class="media-tint" style="background: ${tint};"></div>
           <span class="staff-portrait-label">${s.name.split(" ")[0]}</span>
         </div>
@@ -242,9 +254,13 @@
 
   function renderStaffPages() {
     const sGrid = $("#stylistsGrid");
-    if (sGrid) sGrid.innerHTML = TM_DATA.stylists.map(staffCardHTML).join("");
+    if (sGrid)
+      sGrid.innerHTML = TM_DATA.stylists.map((s, i) => staffCardHTML(s, i)).join("");
     const lGrid = $("#lashGrid");
-    if (lGrid) lGrid.innerHTML = TM_DATA.lashTeam.map(staffCardHTML).join("");
+    if (lGrid)
+      lGrid.innerHTML = TM_DATA.lashTeam
+        .map((s, i) => staffCardHTML(s, i + 6))
+        .join("");
 
     // Service menus
     const hairList = $("#hairServicesList");
@@ -301,16 +317,122 @@
     ];
     grid.innerHTML = tags
       .map((t, i) => {
-        const tint = `linear-gradient(160deg, ${grads[i][0]}66 0%, ${grads[i][1]}bb 100%)`;
-        const img = `https://picsum.photos/seed/mosaic-${i}/500/500?grayscale`;
+        const tint = `linear-gradient(160deg, ${grads[i][0]}44 0%, ${grads[i][1]}99 100%)`;
         return `
           <div class="mosaic-tile reveal" data-tag="${t}">
-            <img class="media-img" src="${img}" loading="lazy" alt="${t}" />
+            ${imgHTML("mosaic-" + i, i + 10, t, 500, 500)}
             <div class="media-tint" style="background: ${tint};"></div>
           </div>
         `;
       })
       .join("");
+  }
+
+  // === Testimonials ===
+  function renderTestimonials() {
+    const wrap = $("#testimonialsGrid");
+    if (!wrap) return;
+    wrap.innerHTML = TM_DATA.testimonials
+      .map(
+        (t) => `
+        <article class="testimonial reveal">
+          <p class="testimonial-quote italic">"${t.quote}"</p>
+          <p class="testimonial-attrib">
+            <strong>${t.name}</strong>
+            <span>${t.role}</span>
+          </p>
+        </article>
+      `
+      )
+      .join("");
+  }
+
+  // === Why us ===
+  function renderWhyUs() {
+    const wrap = $("#whyUsGrid");
+    if (!wrap) return;
+    wrap.innerHTML = TM_DATA.whyUs
+      .map(
+        (w) => `
+        <article class="why-card reveal">
+          <h3>${w.title}</h3>
+          <p>${w.body}</p>
+        </article>
+      `
+      )
+      .join("");
+  }
+
+  // === FAQ accordion ===
+  function renderFAQ() {
+    $$(".faq-list").forEach((list) => {
+      const limit = parseInt(list.dataset.limit, 10) || TM_DATA.faq.length;
+      list.innerHTML = TM_DATA.faq
+        .slice(0, limit)
+        .map(
+          (item, i) => `
+          <details class="faq-item reveal" ${i === 0 ? "open" : ""}>
+            <summary>${item.q}</summary>
+            <p>${item.a}</p>
+          </details>
+        `
+        )
+        .join("");
+    });
+  }
+
+  // === Care guide ===
+  function renderCareGuide() {
+    const wrap = $("#careGuide");
+    if (!wrap) return;
+    wrap.innerHTML = TM_DATA.careGuide
+      .map(
+        (c) => `
+        <article class="care-step reveal">
+          <span class="care-step-num">${c.step}</span>
+          <h3>${c.title}</h3>
+          <p>${c.body}</p>
+        </article>
+      `
+      )
+      .join("");
+  }
+
+  // === Length guide ===
+  function renderLengthGuide() {
+    const wrap = $("#lengthGuide");
+    if (!wrap) return;
+    wrap.innerHTML = TM_DATA.lengthGuide
+      .map(
+        (l) => `
+        <div class="length-row">
+          <strong class="length-len">${l.len}</strong>
+          <span class="length-desc">${l.desc}</span>
+        </div>
+      `
+      )
+      .join("");
+  }
+
+  // === Newsletter ===
+  function initNewsletter() {
+    const f = $("#newsletterForm");
+    if (!f) return;
+    f.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const note = $("#newsletterNote");
+      const email = new FormData(f).get("email");
+      const subs = JSON.parse(localStorage.getItem("tm_subs") || "[]");
+      if (subs.includes(email)) {
+        note.textContent = "Already subscribed.";
+      } else {
+        subs.push(email);
+        localStorage.setItem("tm_subs", JSON.stringify(subs));
+        note.textContent = "You're in. Watch your inbox.";
+        f.reset();
+      }
+      setTimeout(() => (note.textContent = ""), 5000);
+    });
   }
 
   // === Contact form ===
@@ -355,6 +477,12 @@
     safe("renderTalentRail", renderTalentRail);
     safe("renderStaffPages", renderStaffPages);
     safe("renderMosaic", renderMosaic);
+    safe("renderTestimonials", renderTestimonials);
+    safe("renderWhyUs", renderWhyUs);
+    safe("renderFAQ", renderFAQ);
+    safe("renderCareGuide", renderCareGuide);
+    safe("renderLengthGuide", renderLengthGuide);
+    safe("initNewsletter", initNewsletter);
     safe("initContactForm", initContactForm);
     safe("initFooter", initFooter);
 
