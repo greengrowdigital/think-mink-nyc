@@ -605,6 +605,137 @@ const TM_DATA = {
     "1521590832167-7bcbfaa6381f",
     "1560066984-138dadb4c035",
     "1607008829749-c0f284a49841",
+    "1633681926022-7f1ee93e7902",
+    "1522337678568-43d4862c5e44",
+    "1604654894610-df63bc536371",
+    "1633681926035-ec1ac984418a",
+  ],
+
+  // === Suite recruitment ===
+  suiteBenefits: [
+    {
+      icon: "★",
+      title: "Own your hours",
+      body: "Set your schedule. Work nights, weekends, or only on Thursdays — your suite, your call.",
+    },
+    {
+      icon: "✦",
+      title: "Keep 100% of your money",
+      body: "Flat weekly rent. No commission splits. What you charge clients goes home with you.",
+    },
+    {
+      icon: "◆",
+      title: "Private + branded",
+      body: "Lockable suite you can brand. Hang your signage. Play your music. Build your shop inside our space.",
+    },
+    {
+      icon: "✷",
+      title: "All amenities included",
+      body: "Sink, shampoo bowl, mirror, premium lighting, climate control, Wi-Fi, towels, laundry — all in.",
+    },
+    {
+      icon: "♥",
+      title: "Foot traffic from day one",
+      body: "Our shop drives ~600 clients/month. You appear in our directory, IG features, and front-desk referrals.",
+    },
+    {
+      icon: "▲",
+      title: "24/7 secure access",
+      body: "Key-fob entry, security cameras, full alarm. Come in at 6am or 11pm — whenever your client books.",
+    },
+  ],
+
+  suiteTiers: [
+    {
+      name: "Single",
+      sqft: "80 sqft",
+      price: "$295",
+      cadence: "/ week",
+      best: "Solo hair / lash / nails",
+      includes: [
+        "Private locked suite",
+        "Salon chair + mirror",
+        "Shampoo bowl access",
+        "Wi-Fi + laundry",
+      ],
+    },
+    {
+      name: "Double",
+      sqft: "140 sqft",
+      price: "$475",
+      cadence: "/ week",
+      best: "Stylist + assistant or two-chair operator",
+      includes: [
+        "Two stations",
+        "Private shampoo bowl",
+        "Storage + retail wall",
+        "Premium lighting kit",
+      ],
+      featured: true,
+    },
+    {
+      name: "Premium",
+      sqft: "200 sqft",
+      price: "$695",
+      cadence: "/ week",
+      best: "Full-service salon-within-a-salon",
+      includes: [
+        "3 stations + waiting area",
+        "Dedicated wash/color station",
+        "Private bathroom",
+        "Window display + signage",
+      ],
+    },
+  ],
+
+  suiteSteps: [
+    {
+      no: "01",
+      title: "Apply",
+      body: "Drop your info below. We respond within 1 business day.",
+    },
+    {
+      no: "02",
+      title: "Tour the studio",
+      body: "Come walk the floor, meet the team, see your suite.",
+    },
+    {
+      no: "03",
+      title: "Pick your suite",
+      body: "Single, double or premium. Move-in dates as soon as next Monday.",
+    },
+    {
+      no: "04",
+      title: "Open your shop",
+      body: "Brand the space, list yourself in our directory, take your first booking.",
+    },
+  ],
+
+  suiteFaq: [
+    {
+      q: "How is rent billed?",
+      a: "Weekly, billed every Monday. First and last week due at lease signing.",
+    },
+    {
+      q: "Is there a minimum lease term?",
+      a: "3 months minimum. Month-to-month after that. 30-day notice to cancel.",
+    },
+    {
+      q: "Can I bring my own products?",
+      a: "Yes — your suite, your product line. Sell retail with no commission.",
+    },
+    {
+      q: "Do you take a cut of my services?",
+      a: "Zero. You set your prices, you keep every dollar. Rent is the only fee.",
+    },
+    {
+      q: "Who can rent?",
+      a: "Licensed hair stylists, barbers, lash techs, brow artists, MUAs, estheticians and nail artists. Cosmetology license + COI required at signing.",
+    },
+    {
+      q: "Is parking included?",
+      a: "Street parking and two paid lots within one block. We share the lot codes with all tenants.",
+    },
   ],
 
   // === Salon journey scenes ===

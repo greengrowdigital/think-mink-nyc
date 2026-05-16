@@ -57,6 +57,7 @@
             <a href="#talent-lash" data-link>Lash Techs</a>
           </div>
         </div>
+        <a href="#suites" data-link>Suites</a>
         <a href="#contact" data-link>Contact</a>
         <a href="#book" data-link class="cta-link">Book</a>
       </nav>
@@ -618,6 +619,206 @@
         </div>
       </section>
 
+      <!-- SUITE RECRUITMENT -->
+      <section class="view" data-view="suites" hidden>
+        <header class="page-head suites-hero">
+          <img
+            class="suites-hero-bg"
+            src="https://images.unsplash.com/photo-1633681926022-7f1ee93e7902?w=1920&q=80&auto=format&fit=crop"
+            onerror="this.onerror=null;this.src='https://picsum.photos/seed/suites-hero/1920/900?grayscale';"
+            alt=""
+          />
+          <div class="suites-hero-overlay"></div>
+          <div class="container suites-hero-content">
+            <p class="eyebrow reveal">SUITE RECRUITMENT</p>
+            <h1 class="display reveal">
+              <span class="line">Own your chair.</span>
+              <span class="line accent">Build your brand.</span>
+            </h1>
+            <p class="page-sub reveal">
+              Lease a private suite inside Think Mink NYC. No commission splits,
+              no chair fees — just rent. Walk in with your license, walk out
+              with your own salon.
+            </p>
+            <div class="hero-cta reveal">
+              <a href="#suite-apply" class="btn btn-primary">Apply for a suite</a>
+              <a href="#suite-tour" class="btn btn-ghost light">Book a tour</a>
+            </div>
+          </div>
+        </header>
+
+        <!-- Benefits -->
+        <section class="suite-benefits container">
+          <header class="section-head reveal">
+            <p class="eyebrow">WHY THINK MINK</p>
+            <h2 class="display-md">Everything you need to run your shop.</h2>
+          </header>
+          <div class="suite-benefit-grid" id="suiteBenefits"></div>
+        </section>
+
+        <!-- Tiers -->
+        <section class="suite-tiers">
+          <div class="container">
+            <header class="section-head reveal">
+              <p class="eyebrow">SUITES & PRICING</p>
+              <h2 class="display-md">Three suite sizes. Move-in ready.</h2>
+            </header>
+            <div class="tier-grid" id="suiteTiers"></div>
+            <p class="muted tier-fineprint reveal">
+              All rates flat-rate weekly. First + last week due at signing. 3-month minimum lease, month-to-month thereafter.
+            </p>
+          </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="suite-gallery container">
+          <header class="section-head reveal">
+            <p class="eyebrow">THE SPACE</p>
+            <h2 class="display-md">Inside the studio.</h2>
+          </header>
+          <div class="suite-mosaic" id="suiteMosaic"></div>
+        </section>
+
+        <!-- Steps -->
+        <section class="suite-steps">
+          <div class="container">
+            <header class="section-head reveal">
+              <p class="eyebrow">HOW IT WORKS</p>
+              <h2 class="display-md">From application to first client in 7 days.</h2>
+            </header>
+            <div class="suite-step-grid" id="suiteSteps"></div>
+          </div>
+        </section>
+
+        <!-- Application -->
+        <section class="suite-apply" id="suite-apply">
+          <div class="container suite-apply-inner">
+            <div class="suite-apply-info reveal">
+              <p class="eyebrow">APPLY NOW</p>
+              <h2 class="display-md">Tell us about your work.</h2>
+              <p>
+                We respond to every application within one business day. If you'd
+                rather walk through first, you can book a 20-minute studio tour
+                — no commitment.
+              </p>
+              <div class="quick-contact">
+                <p>
+                  <strong>Tours:</strong>
+                  <a href="tel:+17184847781">718.484.7781</a>
+                </p>
+                <p>
+                  <strong>Email:</strong>
+                  <a href="mailto:suites@thinkmink.nyc">suites@thinkmink.nyc</a>
+                </p>
+                <p>
+                  <strong>Location:</strong> Brooklyn, NY — full address with
+                  appointment.
+                </p>
+              </div>
+            </div>
+
+            <form class="suite-form reveal" id="suiteForm">
+              <label>
+                <span>Full name</span>
+                <input type="text" name="name" required />
+              </label>
+              <label>
+                <span>Email address *</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@yourdomain.com"
+                  required
+                />
+              </label>
+              <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" required />
+              </label>
+              <label>
+                <span>Your service</span>
+                <select name="service">
+                  <option>Hair stylist</option>
+                  <option>Barber</option>
+                  <option>Lash technician</option>
+                  <option>Brow artist</option>
+                  <option>Makeup artist</option>
+                  <option>Nail artist</option>
+                  <option>Esthetician</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>
+                <span>Years licensed</span>
+                <select name="years">
+                  <option>Less than 1</option>
+                  <option>1–3</option>
+                  <option>4–7</option>
+                  <option>8+</option>
+                </select>
+              </label>
+              <label>
+                <span>Suite preference</span>
+                <select name="suite">
+                  <option>Single ($295/wk)</option>
+                  <option>Double ($475/wk)</option>
+                  <option>Premium ($695/wk)</option>
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+              <label>
+                <span>Earliest move-in date</span>
+                <input type="date" name="movein" />
+              </label>
+              <label>
+                <span>Instagram (optional)</span>
+                <input type="text" name="instagram" placeholder="@yourhandle" />
+              </label>
+              <label class="full">
+                <span>Anything else we should know?</span>
+                <textarea name="notes" rows="4"></textarea>
+              </label>
+              <label class="check full">
+                <input type="checkbox" name="tour" />
+                <span>Also book me for a 20-minute studio tour</span>
+              </label>
+              <button type="submit" class="btn btn-primary full">
+                Send application
+              </button>
+              <p class="form-note full" id="suiteNote" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+
+        <!-- Tour CTA -->
+        <section class="suite-tour-band" id="suite-tour">
+          <div class="container suite-tour-inner reveal">
+            <div>
+              <p class="eyebrow">PREFER TO SEE IT FIRST?</p>
+              <h2 class="display-md">Book a private tour.</h2>
+              <p class="muted">
+                Walk the floor, see an open suite, meet a current tenant. 20
+                minutes, no pitch.
+              </p>
+            </div>
+            <a
+              href="mailto:suites@thinkmink.nyc?subject=Suite%20tour%20request"
+              class="btn btn-primary"
+              >Email to schedule</a
+            >
+          </div>
+        </section>
+
+        <!-- Suite FAQ -->
+        <section class="suite-faq container">
+          <header class="section-head reveal">
+            <p class="eyebrow">SUITE FAQ</p>
+            <h2 class="display-md">Quick answers.</h2>
+          </header>
+          <div class="faq-list" id="suiteFaqList"></div>
+        </section>
+      </section>
+
       <!-- CONTACT -->
       <section class="view" data-view="contact" hidden>
         <header class="page-head">
@@ -937,6 +1138,7 @@
           <a href="#talent-stylists" data-link>Hair Stylists</a>
           <a href="#talent-lash" data-link>Lash Techs</a>
           <a href="#book" data-link>Book Appointment</a>
+          <a href="#suites" data-link>Lease a Suite</a>
         </div>
         <div>
           <p class="eyebrow">Reach us</p>

@@ -8,6 +8,7 @@
     "shop-bundles",
     "talent-stylists",
     "talent-lash",
+    "suites",
     "contact",
     "book",
     "admin",
@@ -568,6 +569,130 @@
       .join("");
   }
 
+  // === Suite recruitment ===
+  function renderSuiteBenefits() {
+    const wrap = $("#suiteBenefits");
+    if (!wrap) return;
+    wrap.innerHTML = TM_DATA.suiteBenefits
+      .map(
+        (b, i) => `
+        <article class="suite-benefit reveal" style="--i:${i};">
+          <span class="suite-benefit-icon">${b.icon}</span>
+          <h3>${b.title}</h3>
+          <p>${b.body}</p>
+        </article>
+      `
+      )
+      .join("");
+  }
+
+  function renderSuiteTiers() {
+    const wrap = $("#suiteTiers");
+    if (!wrap) return;
+    wrap.innerHTML = TM_DATA.suiteTiers
+      .map(
+        (t, i) => `
+        <article class="tier-card ${t.featured ? "featured" : ""} reveal" style="--i:${i};">
+          ${t.featured ? `<span class="tier-flag">MOST POPULAR</span>` : ""}
+          <p class="tier-name">${t.name}</p>
+          <p class="tier-sqft">${t.sqft}</p>
+          <p class="tier-price">
+            <span class="tier-amount">${t.price}</span>
+            <span class="tier-cadence">${t.cadence}</span>
+          </p>
+          <p class="tier-best">Best for: ${t.best}</p>
+          <ul class="tier-list">
+            ${t.includes.map((x) => `<li>${x}</li>`).join("")}
+          </ul>
+          <a href="#suite-apply" class="btn ${t.featured ? "btn-primary" : "btn-ghost"} tier-btn">Apply for ${t.name.toLowerCase()}</a>
+        </article>
+      `
+      )
+      .join("");
+  }
+
+  function renderSuiteMosaic() {
+    const wrap = $("#suiteMosaic");
+    if (!wrap) return;
+    const labels = [
+      "RECEPTION",
+      "SUITE 04",
+      "WASH STATION",
+      "COLOR BAR",
+      "LASH ROOM",
+      "LOUNGE",
+    ];
+    const salonIds = TM_DATA.salonIds;
+    wrap.innerHTML = labels
+      .map((l, i) => {
+        const id = salonIds[i % salonIds.length];
+        const primary = `https://images.unsplash.com/photo-${id}?w=700&q=80&auto=format&fit=crop`;
+        const fallback = `https://picsum.photos/seed/suitepic-${i}/700/700?grayscale`;
+        return `
+          <div class="suite-tile reveal" data-tag="${l}" style="--i:${i};">
+            <img class="media-img" src="${primary}" onerror="this.onerror=null;this.src='${fallback}';" loading="lazy" alt="${l}" />
+            <div class="media-tint" style="background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 100%);"></div>
+            <span class="suite-tile-label">${l}</span>
+          </div>
+        `;
+      })
+      .join("");
+  }
+
+  function renderSuiteSteps() {
+    const wrap = $("#suiteSteps");
+    if (!wrap) return;
+    wrap.innerHTML = TM_DATA.suiteSteps
+      .map(
+        (s, i) => `
+        <article class="suite-step reveal" style="--i:${i};">
+          <span class="suite-step-no">${s.no}</span>
+          <h3>${s.title}</h3>
+          <p>${s.body}</p>
+        </article>
+      `
+      )
+      .join("");
+  }
+
+  function renderSuiteFAQ() {
+    const wrap = $("#suiteFaqList");
+    if (!wrap) return;
+    wrap.innerHTML = TM_DATA.suiteFaq
+      .map(
+        (item, i) => `
+        <details class="faq-item reveal" ${i === 0 ? "open" : ""}>
+          <summary>${item.q}</summary>
+          <p>${item.a}</p>
+        </details>
+      `
+      )
+      .join("");
+  }
+
+  function initSuiteForm() {
+    const f = $("#suiteForm");
+    if (!f) return;
+    f.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const note = $("#suiteNote");
+      const data = Object.fromEntries(new FormData(f));
+      const all = JSON.parse(localStorage.getItem("tm_suite_apps") || "[]");
+      all.push({
+        ...data,
+        tour: data.tour === "on",
+        id: "SUITE-" + Date.now().toString(36).toUpperCase(),
+        createdAt: new Date().toISOString(),
+      });
+      localStorage.setItem("tm_suite_apps", JSON.stringify(all));
+      f.reset();
+      note.textContent =
+        "Application received. We'll be in touch within 1 business day.";
+      setTimeout(() => (note.textContent = ""), 7000);
+      window.TM_toast && window.TM_toast("Suite application sent");
+    });
+  }
+
   // === Newsletter ===
   function initNewsletter() {
     const f = $("#newsletterForm");
@@ -643,6 +768,12 @@
     safe("initLetterStagger", initLetterStagger);
     safe("initStatCounters", initStatCounters);
     safe("initHeroParallax", initHeroParallax);
+    safe("renderSuiteBenefits", renderSuiteBenefits);
+    safe("renderSuiteTiers", renderSuiteTiers);
+    safe("renderSuiteMosaic", renderSuiteMosaic);
+    safe("renderSuiteSteps", renderSuiteSteps);
+    safe("renderSuiteFAQ", renderSuiteFAQ);
+    safe("initSuiteForm", initSuiteForm);
     safe("initNewsletter", initNewsletter);
     safe("initContactForm", initContactForm);
     safe("initFooter", initFooter);
