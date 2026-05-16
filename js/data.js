@@ -599,6 +599,62 @@ const TM_DATA = {
     "1530785602389-07594beb8b73",
   ],
 
+  // === Salon interior / suite imagery for the "Step inside" section ===
+  salonIds: [
+    "1562322140-8baeececf3df",
+    "1521590832167-7bcbfaa6381f",
+    "1560066984-138dadb4c035",
+    "1607008829749-c0f284a49841",
+  ],
+
+  // === Salon journey scenes ===
+  journey: [
+    {
+      no: "01",
+      title: "Walk in.",
+      body:
+        "Brass handle, magenta neon, the smell of fresh shampoo. The studio greets you on arrival.",
+      seedKey: "salon-entrance",
+      salonIdx: 0,
+    },
+    {
+      no: "02",
+      title: "Get matched.",
+      body:
+        "Quick consult — texture, density, finish. Your stylist picks your suite based on the service.",
+      seedKey: "salon-reception",
+      salonIdx: 1,
+    },
+    {
+      no: "03",
+      title: "Your suite.",
+      body:
+        "Private chair, lighting tuned for color work, a moodboard at every station. Sit. Settle in.",
+      seedKey: "salon-suite",
+      salonIdx: 2,
+    },
+    {
+      no: "04",
+      title: "Walk out unreal.",
+      body:
+        "Full mirror moment, photoshoot in the mirror, hair so right you'll re-book on the way out.",
+      seedKey: "salon-exit",
+      salonIdx: 3,
+    },
+  ],
+
+  // === By the numbers ===
+  stats: [
+    { num: 8, suffix: "+", label: "Years in the chair" },
+    { num: 12000, suffix: "+", label: "Installs delivered", short: true },
+    { num: 200, suffix: "+", label: "Stylists trained" },
+    { num: 92, suffix: "%", label: "Return-client rate" },
+  ],
+
+  // === Rotating slogan words ===
+  sloganWords: ["THINK", "MINK", "NYC", "LUXURY", "MINK", "NYC"],
+  bigSlogan: "STEP IN. WALK OUT UNREAL.",
+
   imgFor(seed, idx, w = 600, h = 750) {
     const ids = this.unsplashIds;
     const id = ids[Math.abs(idx) % ids.length];

@@ -2250,3 +2250,246 @@ button {
 .prep-grid .check-list li::before {
   background: var(--ink);
 }
+
+/* === Slogan band (rotating words) === */
+.slogan-band {
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  padding: 1.4rem 0;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+.slogan-track {
+  display: flex;
+  gap: 2.4rem;
+  white-space: nowrap;
+  width: max-content;
+  animation: sloganScroll 28s linear infinite;
+}
+.slogan-word {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  -webkit-text-stroke: 1px var(--paper);
+  color: transparent;
+}
+.slogan-word.alt {
+  color: var(--pink);
+  -webkit-text-stroke: 0;
+}
+.slogan-dot {
+  align-self: center;
+  color: var(--pink);
+  font-size: 1.5rem;
+}
+@keyframes sloganScroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* === Big slogan strip === */
+.big-slogan {
+  background: var(--pink);
+  color: var(--ink);
+  padding: 2.2rem 0;
+  overflow: hidden;
+  border-top: 6px double rgba(0, 0, 0, 0.15);
+  border-bottom: 6px double rgba(0, 0, 0, 0.15);
+}
+.big-slogan-track {
+  display: flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  width: max-content;
+  animation: bigScroll 22s linear infinite;
+}
+.big-slogan-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+.big-slogan-star {
+  align-self: center;
+  font-size: 1.6rem;
+  color: var(--ink);
+}
+@keyframes bigScroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* === Salon journey === */
+.salon-journey {
+  padding: 6rem 0 4rem;
+  background: linear-gradient(180deg, transparent 0%, var(--paper-2) 100%);
+}
+.journey-rail {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+@media (max-width: 1000px) {
+  .journey-rail {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .journey-rail {
+    grid-template-columns: 1fr;
+  }
+}
+.journey-card {
+  position: relative;
+  background: var(--paper);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+  transition-delay: calc(var(--i, 0) * 0.06s);
+}
+.journey-card:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+  box-shadow: 0 30px 60px -30px rgba(237, 69, 160, 0.45);
+}
+.journey-card:nth-child(even):hover {
+  transform: translateY(-6px) rotate(0.6deg);
+}
+.journey-media {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--ink);
+}
+.journey-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(102, 67, 152, 0.25) 60%,
+    rgba(10, 10, 10, 0.6) 100%
+  );
+  mix-blend-mode: multiply;
+}
+.journey-num {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  line-height: 1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+}
+.journey-body {
+  padding: 1.3rem 1.4rem 1.6rem;
+}
+.journey-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem 0;
+}
+.journey-body p {
+  margin: 0;
+  color: var(--mute);
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+/* === Stats === */
+.stats-band {
+  padding: 5rem 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+@media (max-width: 800px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.stat-tile {
+  text-align: left;
+  padding: 1.6rem 1.2rem;
+  border-top: 2px solid var(--ink);
+  position: relative;
+}
+.stat-tile::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 40%;
+  height: 2px;
+  background: var(--pink);
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem 0;
+}
+.stat-label {
+  font-family: var(--font-display);
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  color: var(--mute);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* === Letter stagger animation === */
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40%) rotate(6deg);
+  animation: charIn 0.7s var(--ease) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes charIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* Slight extra polish on hero CTA */
+.hero-cta .btn:first-child {
+  position: relative;
+  overflow: hidden;
+}
+.hero-cta .btn:first-child::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  animation: shine 3.2s var(--ease) infinite;
+}
+@keyframes shine {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Reveal scale variant for journey/stat tiles */
+.journey-card.reveal,
+.stat-tile.reveal {
+  transform: translateY(40px) scale(0.96);
+}
+.journey-card.reveal.in,
+.stat-tile.reveal.in {
+  transform: translateY(0) scale(1);
+  transition-delay: calc(var(--i, 0) * 0.1s);
+}

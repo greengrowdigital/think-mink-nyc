@@ -398,6 +398,160 @@
       .join("");
   }
 
+  // === Slogan band (rotating words) ===
+  function renderSloganBand() {
+    const track = $("#sloganTrack");
+    if (!track) return;
+    const words = TM_DATA.sloganWords;
+    // Build two passes so the track can loop seamlessly
+    const html = [...words, ...words]
+      .map(
+        (w, i) =>
+          `<span class="slogan-word ${i % 2 ? "alt" : ""}">${w}</span><span class="slogan-dot">●</span>`
+      )
+      .join("");
+    track.innerHTML = html;
+  }
+
+  function renderBigSlogan() {
+    const track = $("#bigSloganTrack");
+    if (!track) return;
+    const t = TM_DATA.bigSlogan;
+    const block = `<span class="big-slogan-text">${t}</span><span class="big-slogan-star">✦</span>`;
+    track.innerHTML = block.repeat(6);
+  }
+
+  // === Salon journey ===
+  function renderSalonJourney() {
+    const rail = $("#journeyRail");
+    if (!rail) return;
+    const salonIds = TM_DATA.salonIds;
+    rail.innerHTML = TM_DATA.journey
+      .map((j, i) => {
+        const id = salonIds[j.salonIdx % salonIds.length];
+        const primary = `https://images.unsplash.com/photo-${id}?w=800&q=80&auto=format&fit=crop`;
+        const fallback = `https://picsum.photos/seed/${j.seedKey}/800/1000?grayscale`;
+        return `
+          <article class="journey-card reveal" style="--i: ${i};">
+            <div class="journey-media">
+              <img class="media-img" src="${primary}" onerror="this.onerror=null;this.src='${fallback}';" loading="lazy" alt="${j.title}" />
+              <div class="journey-tint"></div>
+              <span class="journey-num">${j.no}</span>
+            </div>
+            <div class="journey-body">
+              <h3>${j.title}</h3>
+              <p>${j.body}</p>
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+  }
+
+  // === Stat counters ===
+  function renderStats() {
+    const grid = $("#statsGrid");
+    if (!grid) return;
+    grid.innerHTML = TM_DATA.stats
+      .map(
+        (s, i) => `
+        <div class="stat-tile reveal" style="--i: ${i};">
+          <p class="stat-num" data-target="${s.num}" data-suffix="${s.suffix}" data-short="${s.short ? 1 : 0}">0${s.suffix}</p>
+          <p class="stat-label">${s.label}</p>
+        </div>
+      `
+      )
+      .join("");
+  }
+
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || "";
+    const isShort = el.dataset.short === "1";
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = Math.round(target * eased);
+      el.textContent = formatStat(val, isShort) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = formatStat(target, isShort) + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  function formatStat(n, short) {
+    if (!short) return n.toLocaleString("en-US");
+    if (n >= 1000) return (n / 1000).toFixed(n % 1000 === 0 ? 0 : 1) + "K";
+    return String(n);
+  }
+  function initStatCounters() {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          if (el.dataset.counted === "1") return;
+          el.dataset.counted = "1";
+          animateCounter(el);
+          obs.unobserve(el);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    $$(".stat-num").forEach((el) => obs.observe(el));
+  }
+
+  // === Letter stagger animation ===
+  function initLetterStagger() {
+    $$("[data-stagger]").forEach((el) => {
+      const lines = $$(".line", el);
+      lines.forEach((line, li) => {
+        const text = line.textContent;
+        line.innerHTML = "";
+        [...text].forEach((char, i) => {
+          const span = document.createElement("span");
+          span.className = "char";
+          span.style.setProperty("--d", `${(li * 8 + i) * 0.04}s`);
+          span.textContent = char === " " ? " " : char;
+          line.appendChild(span);
+        });
+      });
+    });
+  }
+
+  // === Hero parallax ===
+  function initHeroParallax() {
+    const heroContent = $(".hero-content");
+    const heroMedia = $(".hero-video") || $(".hero-fallback");
+    if (!heroContent) return;
+    let raf;
+    function update() {
+      const y = window.scrollY;
+      if (y > window.innerHeight) return;
+      const offsetText = Math.min(y * 0.35, 200);
+      const offsetMedia = y * 0.2;
+      heroContent.style.transform = `translateY(${offsetText}px)`;
+      heroContent.style.opacity = String(Math.max(1 - y / 600, 0));
+      if (heroMedia)
+        heroMedia.style.transform = `translateY(${offsetMedia}px) scale(${1 + y / 4000})`;
+    }
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!raf) {
+          raf = requestAnimationFrame(() => {
+            update();
+            raf = null;
+          });
+        }
+      },
+      { passive: true }
+    );
+    update();
+  }
+
   // === Length guide ===
   function renderLengthGuide() {
     const wrap = $("#lengthGuide");
@@ -482,6 +636,13 @@
     safe("renderFAQ", renderFAQ);
     safe("renderCareGuide", renderCareGuide);
     safe("renderLengthGuide", renderLengthGuide);
+    safe("renderSloganBand", renderSloganBand);
+    safe("renderBigSlogan", renderBigSlogan);
+    safe("renderSalonJourney", renderSalonJourney);
+    safe("renderStats", renderStats);
+    safe("initLetterStagger", initLetterStagger);
+    safe("initStatCounters", initStatCounters);
+    safe("initHeroParallax", initHeroParallax);
     safe("initNewsletter", initNewsletter);
     safe("initContactForm", initContactForm);
     safe("initFooter", initFooter);
